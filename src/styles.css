@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700;800&display=swap");
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Anton", "Impact", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 14px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-flame: var(--flame);
+  --color-gold: var(--gold);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --shadow-card: var(--shadow-card);
+  --shadow-glow: var(--shadow-glow);
+}
+
+/* Retro matchday: cream programme paper, deep purple ink, teal, gold and red, like the poster */
+:root {
+  --radius: 0.75rem;
+  --background: #f1e6cf;
+  --foreground: #2d0a3e;
+  --surface: #ebdfc4;
+  --card: #fbf4e4;
+  --card-foreground: #2d0a3e;
+  --popover: #fbf4e4;
+  --popover-foreground: #2d0a3e;
+  --primary: #3d195b;
+  --primary-foreground: #fbf4e4;
+  --secondary: #e7d9ba;
+  --secondary-foreground: #2d0a3e;
+  --muted: #eadfc6;
+  --muted-foreground: #6b5671;
+  --accent: #2ec4b6;
+  --accent-foreground: #2d0a3e;
+  --destructive: #d7263d;
+  --destructive-foreground: #fbf4e4;
+  --success: #1f9e8f;
+  --flame: #e8590c;
+  --gold: #f2c230;
+  --border: #2d0a3e;
+  --input: #2d0a3e;
+  --ring: #2ec4b6;
+  --chart-1: #3d195b;
+  --chart-2: #2ec4b6;
+  --chart-3: #f2c230;
+  --chart-4: #d7263d;
+  --chart-5: #6b5671;
+  --sidebar: #fbf4e4;
+  --sidebar-foreground: #2d0a3e;
+  --sidebar-primary: #3d195b;
+  --sidebar-primary-foreground: #fbf4e4;
+  --sidebar-accent: #eadfc6;
+  --sidebar-accent-foreground: #2d0a3e;
+  --sidebar-border: #2d0a3e;
+  --sidebar-ring: #2ec4b6;
+  /* Hard offset shadows, like a printed sticker stuck on the page */
+  --shadow-card: 4px 4px 0 #2d0a3e;
+  --shadow-glow: 4px 4px 0 #2ec4b6;
+  --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .18 0 0 0 0 .04 0 0 0 0 .24 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    background-color: var(--color-background);
+    background-image: var(--paper-grain);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    min-height: 100dvh;
+  }
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+}
+
+@utility display-xl {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility pitch-lines {
+  background-image: var(--paper-grain);
+}
+
+/* Match-ticket card: ink outline, offset shadow, slight tilt */
+@utility ticket {
+  background-color: var(--card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+
+/* 2x combo ticket: warm gold foil with a light sweep and a soft pulsing glow */
+@utility combo {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(135deg, #fff6d6 0%, #ffe48a 38%, #f2c230 62%, #ffe9a3 100%);
+  box-shadow: 4px 4px 0 var(--border), 0 0 0 0 rgb(242 194 48 / 0.7);
+  animation: combo-glow 2.2s ease-in-out infinite;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(115deg, transparent 30%, rgb(255 255 255 / 0.75) 45%, transparent 60%);
+    background-size: 250% 100%;
+    animation: combo-shine 3.2s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    &::after {
+      animation: none;
+      background: none;
+    }
+  }
+}
+
+@keyframes combo-glow {
+  0%, 100% { box-shadow: 4px 4px 0 var(--border), 0 0 0 0 rgb(242 194 48 / 0.65); }
+  50% { box-shadow: 4px 4px 0 var(--border), 0 0 26px 6px rgb(242 194 48 / 0.65); }
+}
+
+@keyframes combo-shine {
+  0% { background-position: 150% 0; }
+  60%, 100% { background-position: -100% 0; }
+}
+
+/* Dashed tear-off line with punched notches at both ends */
+@utility perforation {
+  position: relative;
+  border-top: 2px dashed color-mix(in srgb, var(--border) 45%, transparent);
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: -11px;
+    width: 20px;
+    height: 20px;
+    border-radius: 9999px;
+    background: var(--background);
+    border: 2px solid var(--border);
+  }
+  &::before {
+    left: -35px;
+  }
+  &::after {
+    right: -35px;
+  }
+}
