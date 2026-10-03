@@ -13,8 +13,11 @@ Built with TanStack Start, React, Tailwind and Supabase.
    - `SUPABASE_SERVICE_ROLE_KEY`: the service role key (server only, keep it secret)
 3. **Create the database tables.** Run each file in `supabase/migrations/` in order, in Supabase → SQL Editor. Or, with the Supabase CLI: `supabase link --project-ref <ref>` then `supabase db push`.
 4. **Set up login** in Supabase → Authentication → Sign In / Providers → Email: keep Email enabled and turn **"Confirm email" off**. Anonymous sign-ins can stay off.
+5. **Set up email sending** (new players verify an email with a 6-digit code). Create a [Resend](https://resend.com) account, verify your domain, and add these server-only env vars:
+   - `RESEND_API_KEY`: your Resend API key
+   - `EMAIL_FROM`: e.g. `Five-a-Side <noreply@footballtrivia.live>`
 
-Players log in with a unique username and a password; no email is ever asked for. Behind the scenes each username maps to a fixed internal address (`u<hex>@players.fiveaside.app`) because Supabase logins need one. Every player has a permanent user ID, and all answers, points and streaks are stored under it in the database, so they can log in again from any device.
+Players log in with a unique username and a password. New players then verify an email with a 6-digit code (stored on their profile; players from before this was added aren't asked). Behind the scenes each username maps to a fixed internal address (`u<hex>@players.fiveaside.app`) because Supabase logins need one. Every player has a permanent user ID, and all answers, points and streaks are stored under it in the database, so they can log in again from any device.
 
 There's no "forgot password" (there's no real email to send a link to). To reset a player's password, run this in the SQL Editor with their user ID (shown on the Admin page):
 

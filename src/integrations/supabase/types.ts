@@ -70,11 +70,41 @@ export type Database = {
         }
         Relationships: []
       }
+      email_codes: {
+        Row: {
+          attempts: number
+          code_hash: string
+          created_at: string
+          email: string
+          expires_at: string
+          user_id: string
+        }
+        Insert: {
+          attempts?: number
+          code_hash: string
+          created_at?: string
+          email: string
+          expires_at: string
+          user_id: string
+        }
+        Update: {
+          attempts?: number
+          code_hash?: string
+          created_at?: string
+          email?: string
+          expires_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
           current_streak: number
           display_name: string
+          email: string | null
+          email_verified_at: string | null
+          needs_email: boolean
           id: string
           last_played_date: string | null
           longest_streak: number
@@ -84,6 +114,9 @@ export type Database = {
           created_at?: string
           current_streak?: number
           display_name: string
+          email?: string | null
+          email_verified_at?: string | null
+          needs_email?: boolean
           id: string
           last_played_date?: string | null
           longest_streak?: number
@@ -93,6 +126,9 @@ export type Database = {
           created_at?: string
           current_streak?: number
           display_name?: string
+          email?: string | null
+          email_verified_at?: string | null
+          needs_email?: boolean
           id?: string
           last_played_date?: string | null
           longest_streak?: number
